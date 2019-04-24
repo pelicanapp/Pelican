@@ -1,11 +1,21 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const koa_1 = __importDefault(require("koa"));
-const app = new koa_1.default();
-app.use(async (context) => {
-    context.body = 'Hello World';
+const Koa = require("koa");
+const mongoose = require("mongoose");
+console.log("wat");
+const app = new Koa();
+console.log("Loading...");
+//connecting to mongodb
+mongoose.connect("mongodb://mongo/myappdb", err => {
+    if (err) {
+        console.log("aww", err);
+        throw err;
+    }
+    console.log("connected to mongo");
 });
+app.use(async (context) => {
+    context.body = "Hello World! :)";
+});
+console.log("Listening on 3000...");
 app.listen(3000);
+//# sourceMappingURL=index.js.map

@@ -1,20 +1,33 @@
-version: "3"
+version: '3'
 services:
-  app:
-    command: npm run dev
-    depends_on:
-      - mongo
-    environment:
-      NODE_ENV: development
-    image: node:alpine
-    ports:
-      - 3000:3000
-    volumes:
-      - ./:/app
-    working_dir: /app
-  mongo:
-    expose:
-      - 27017
-    image: mongo
-    volumes:
-      - ./data/db:/data/db
+    admin-mongo:
+        image: 0x59/admin-mongo:latest
+        ports:
+            - '8082:8082'
+        environment:
+            - PORT=8082
+            - CONN_NAME=mongo
+            - DB_HOST=mongo
+        links:
+            - mongo
+
+    mongo:
+        expose:
+            - 27017
+        image: mongo
+        volumes:
+            - ./data/db:/data/db
+
+    server:
+        command: npm run dev
+        depends_on:
+            - mongo
+        environment:
+            NODE_ENV: development
+        image: node:alpine
+        ports:
+            - 3000:3000
+        restart: always
+        volumes:
+            - ./:/app
+        working_dir: /app

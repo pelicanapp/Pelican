@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": true,
+    "files.exclude": {
+        "**/*.d.ts": true,
+        "**/*.js.map": true,
+        "**/*.js": { "when": "$(basename).ts" }
+    },
+    "typescript.tsdk": "node_modules/typescript/lib"
+}
