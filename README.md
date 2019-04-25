@@ -4,9 +4,9 @@
 
 ## Requirements
 
-* Docker
-* npm
-* VS Code
+-   Docker
+-   npm
+-   VS Code
 
 Running the server locally:
 
@@ -14,5 +14,5 @@ Running the server locally:
 git clone https://github.com/pelicanapp/Pelican
 cd Pelican
 npm i
-docker-compose up -d
+npm run dev
 ```

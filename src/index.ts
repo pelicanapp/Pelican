@@ -1,7 +1,6 @@
 import Koa = require('koa');
 import mongoose = require('mongoose');
 
-console.log('wat');
 const app = new Koa();
 
 console.log('Loading...');
@@ -16,8 +15,8 @@ mongoose.connect('mongodb://mongo/myappdb', err => {
 });
 
 app.use(async context => {
-    context.body = 'Hello World! :)';
+    context.body = 'Hello World! :D :D';
 });
 
-console.log('Listening on 3000...');
-app.listen(3000);
+console.log('Listening on 4000...');
+app.listen(4000);
