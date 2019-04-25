@@ -1,25 +1,13 @@
 version: '3'
 services:
-    admin-mongo:
-        image: 0x59/admin-mongo:latest
-        ports:
-            - '8082:8082'
-        environment:
-            - PORT=8082
-            - CONN_NAME=mongo
-            - DB_HOST=mongo
-        links:
-            - mongo
-
     mongo:
         expose:
             - 27017
         image: mongo
         volumes:
             - ./data/db:/data/db
-
     server:
-        command: npm run dev
+        command: npm run start
         depends_on:
             - mongo
         environment:
