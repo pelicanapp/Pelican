@@ -1,18 +1,19 @@
 import Koa = require('koa');
-import mongoose = require('mongoose');
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://test-user_1:<password>@cluster0-dojin.mongodb.net/test?retryWrites=true";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect((err: any) => {
+    console.log('connected to db!', err);
+    // const collection = client.db("test").collection("devices");
+    // perform actions on the collection object
+    client.close();
+});
+
 
 const app = new Koa();
 
 console.log('Loading...');
-
-mongoose.connect('mongodb://mongo/myappdb', err => {
-    if (err) {
-        console.log('aww', err);
-        throw err;
-    }
-
-    console.log('connected to mongo');
-});
 
 app.use(async context => {
     context.body = 'Hello World! :D :D';
