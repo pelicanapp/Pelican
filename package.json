@@ -2,7 +2,7 @@
     "name": "koatest",
     "version": "0.1.0",
     "description": "",
-    "main": "index.js",
+    "main": "src/index.js",
     "scripts": {
         "dev": "nodemon",
         "start": "node --inspect -r ts-node/register ./src/index.ts",
