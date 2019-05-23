@@ -20,7 +20,5 @@ const main = async () => {
 };
 
 main()
-    .then(() => {
-        console.log(chalk.green('✨ Setup complete! ✨'));
-    })
+    .then(() => console.log(chalk.green('✨ Setup complete! ✨')))
     .catch(error => console.error(chalk.red(error)));
