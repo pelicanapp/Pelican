@@ -1,5 +1,6 @@
 data
 node_modules
+pelican.json
 src/**/*.js
 src/**/*.js.map
 .tsbuildinfo
