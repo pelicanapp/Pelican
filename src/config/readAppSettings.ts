@@ -18,7 +18,7 @@ export enum AppSettingsFailureReason {
 }
 
 const configFileName = 'pelican.json';
-const configFilePath = path.resolve(`../../${configFileName}`);
+const configFilePath = path.resolve(`${configFileName}`);
 
 const requiredKeys: readonly (keyof AppSettings)[] = ['mongo'];
 
